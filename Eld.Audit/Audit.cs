@@ -5,9 +5,10 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-
+[assembly: InternalsVisibleTo("Eld.Test")]
 namespace Eld.Audit
 {
     public class LogAuditor
@@ -22,7 +23,8 @@ namespace Eld.Audit
         /// </summary>
         /// <param name="logs"></param>
         /// <returns>Threadsave Dictionary of Violations by DriverId key</returns>
-        private ConcurrentDictionary<string, List<DutyStatusViolation>> Audit(ConcurrentDictionary<string, List<DutyStatusAuditPeriod>> groupedPeriods)
+        private ConcurrentDictionary<string, List<DutyStatusViolation>> Audit(ConcurrentDictionary<string, 
+            List<DutyStatusAuditPeriod>> groupedPeriods)
         {
             ConcurrentDictionary<string, List<DutyStatusViolation>> violations = new ConcurrentDictionary<string, List<DutyStatusViolation>>();
 
